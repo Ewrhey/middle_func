@@ -2,6 +2,9 @@
 bool itc_mirror_num(long long number){//9
     long long n = 0;
     long long number1 = number;
+    if (number == 0){
+	return true;
+    }
     if (number % 10 > 0){
     while(number > 0){
         n = 10*n + number%10;
