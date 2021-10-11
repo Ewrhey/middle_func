@@ -1,4 +1,4 @@
-    #include "middle.h"
+#include "middle.h"
 
 
 int itc_min_num(long long number){//6
@@ -21,7 +21,7 @@ int itc_min_num(long long number){//6
 int itc_rev_num(long long number){//7
     int n = 0;
     if (number == 0){
-     return 1;   
+     return 1;
     }
     if (number < 0){
         number = number * -1;
@@ -49,71 +49,49 @@ int itc_null_count(long long number){//8
 }
 
 int itc_second_max_num(long long number){//11
-    int max_n, max_n_2, i, len;
-    max_n = 0;
-    max_n_2 = 0;
-    i = 0;
-    if (number < 0){
-        number = number * -1;
-    }
-    len = itc_len_num(number);
-    while (number > 0){
-        if (number %10 == max_n){
-            i++;
-        }
-        if (number % 10 > max_n){
-            max_n_2 = max_n;
-            max_n = number % 10;
-        }
-        else if ((number % 10) * -1 > max_n){
-            max_n_2 = max_n;
-            max_n = (number % 10)*-1;
-        }
-        else if ( (number % 10 > max_n_2) && (number % 10 < max_n) ){
-            max_n_2 = number % 10;
-        }
-        else if( ( (number % 10)*-1 > max_n_2 ) && ( (number % 10)*-1 < max_n ) ){
-            max_n_2 = (number % 10)*-1;
-        }
-        number = number / 10;
-    }
-    if (i == len - 1){
-    max_n_2 = max_n;
-    }
-return max_n_2;
-}
+int max_n, max_n_2, i, number_1;
+i = 0;
+if (number < 0){
+    number = number * -1;}
+max_n = itc_max_num(number);
+number_1 = number;
+max_n_2 = max_n - 1;
+while (number_1 > 0){
+    if (max_n == number_1 % 10){
+        i++;}
+    number_1 = number_1 / 10;}
+number_1 = number;
+if (i > 1){
+    return max_n;}
+while (max_n_2 >= 0){
+    while (number_1 > 0){
+        if (max_n_2 == (number_1 % 10)){
+            return max_n_2;}
+        number_1 = number_1 / 10;}
+    number_1 = number;
+    max_n_2--;}
+return -1;}
 
 int itc_second_simple_max_num(long long number){//12
-    int max_n, max_n_2, i, len;
-    max_n = 0;
-    max_n_2 = 0;
-    i = 0;
-    if (number < 0){
-        number = number * -1;
-    }
-    len = itc_len_num(number);
-    while (number > 0){
-        if (number %10 == max_n){
-            i++;
-        }
-        if (number % 10 > max_n){
-            max_n_2 = max_n;
-            max_n = number % 10;
-        }
-        else if ((number % 10) * -1 > max_n){
-            max_n_2 = max_n;
-            max_n = (number % 10)*-1;
-        }
-        else if ( (number % 10 > max_n_2) && (number % 10 < max_n) ){
-            max_n_2 = number % 10;
-        }
-        else if( ( (number % 10)*-1 > max_n_2 ) && ( (number % 10)*-1 < max_n ) ){
-            max_n_2 = (number % 10)*-1;
-        }
-        number = number / 10;
-    }
-    if (i == len - 1){
-    return -1;
-    }
-return max_n_2;
-}
+int max_n, max_n_2, i, number_1;
+i = 0;
+if (number < 0){
+    number = number * -1;}
+max_n = itc_max_num(number);
+number_1 = number;
+max_n_2 = max_n - 1;
+while (number_1 > 0){
+    if (max_n == number_1 % 10){
+        i++;}
+    number_1 = number_1 / 10;}
+number_1 = number;
+if (i > 1){
+    return -1;}
+while (max_n_2 >= 0){
+    while (number_1 > 0){
+        if (max_n_2 == (number_1 % 10)){
+            return max_n_2;}
+        number_1 = number_1 / 10;}
+    number_1 = number;
+    max_n_2--;}
+return -1;}
