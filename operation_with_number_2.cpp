@@ -20,6 +20,9 @@ int itc_min_num(long long number){//6
 
 int itc_rev_num(long long number){//7
     int n = 0;
+    if (number == 0){
+     return 1;   
+    }
     if (number < 0){
         number = number * -1;
     }
