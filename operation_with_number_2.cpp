@@ -19,7 +19,7 @@ int itc_min_num(long long number){//6
 }
 
 int itc_rev_num(long long number){//7
-    int n = 0;
+    long long n = 0;
     if (number == 0){
      return 1;
     }
@@ -38,7 +38,7 @@ int itc_null_count(long long number){//8
     if (number < 0){
     number = number * -1;
     }
-    while (number != 0){
+    while (number >= 0){
         if (number % 10 == 0){
         i = i + 1;
         }
