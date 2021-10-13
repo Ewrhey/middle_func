@@ -38,7 +38,10 @@ int itc_null_count(long long number){//8
     if (number < 0){
     number = number * -1;
     }
-    while (number >= 0){
+    if(number == 0){
+        return 1;
+    } 
+    while (number > 0){
         if (number % 10 == 0){
         i = i + 1;
         }
